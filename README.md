@@ -113,7 +113,7 @@ cd cli && cargo build --release
 
 ### Manual Install
 ```bash
-git clone https://github.com/codehands/codehands.git
+git clone https://github.com/vidyabodepudi/codehands.git
 cp -r codehands/skills/ ./.codehands/skills/
 cp codehands/adapters/CLAUDE.md ./CLAUDE.md  # or your platform adapter
 ```
