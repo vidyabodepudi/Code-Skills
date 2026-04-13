@@ -89,6 +89,8 @@ Every skill ships with behavioral enforcement — not just instructions, but res
 
 ## Quick Start
 
+#### _Do the manual install, I haven't gotten this into the marketplaces for Claude, Cursor, Gemini, etc._
+
 ### Claude Code
 ```bash
 claude install codehands
