@@ -1,0 +1,97 @@
+# CodeHands Configuration
+# Project-level settings for the CodeHands agent skills framework.
+# Place this file at .codehands/config.yml in your project root.
+
+# ─── Model Override ───────────────────────────────────────────────
+# Force a specific model detection result.
+# Valid: claude, gemini, gpt, copilot, codex, opencode, windsurf, kiro
+# If not set, model is detected automatically from platform files.
+# model: claude
+
+# ─── Telemetry ────────────────────────────────────────────────────
+telemetry: false
+
+# ─── Tier Overrides ───────────────────────────────────────────────
+# Promote or demote skills between tiers for project-specific needs.
+tiers:
+  # Promote skills to Tier 0 (always loaded)
+  # Example: always load security for a fintech project
+  always_on: []
+    # - security-and-hardening
+
+  # Never load these skills (remove from all tiers)
+  # Example: no browser testing for a CLI project
+  never_load: []
+    # - browser-testing-with-devtools
+    # - frontend-ui-engineering
+
+# ─── Default Preset ───────────────────────────────────────────────
+# When the engine can't determine the best preset, use this one.
+# Valid: quick-fix, new-feature, refactor, security-audit, debug-session
+default_preset: quick-fix
+
+# ─── Skill Settings ──────────────────────────────────────────────
+skills:
+  # Require verified-only skills from marketplace (enterprise policy)
+  require_verified: false
+  # Maximum token budget per skill (default: 2000)
+  max_tokens_per_skill: 2000
+
+# ─── Phase Overrides ─────────────────────────────────────────────
+# Skip or enforce specific phases for this project.
+phases:
+  # Always skip these phases (e.g., skip brainstorming for a library)
+  skip: []
+    # - define
+
+  # Always enforce these phases even on trivial fixes
+  enforce: []
+    # - review
+
+# ─── Security Policy ─────────────────────────────────────────────
+# Project-level security settings.
+security:
+  # Minimum risk level that triggers security review
+  # Options: low, medium, high, critical
+  review_threshold: medium
+
+  # Require human approval for ALL destructive operations
+  require_human_approval: true
+
+  # File patterns that always trigger elevated review
+  high_risk_patterns:
+    - "*auth*"
+    - "*payment*"
+    - "*migration*"
+    - "*.env*"
+
+# ─── Audit Settings ──────────────────────────────────────────────
+audit:
+  # Enable structured logging for skill activations
+  logging: true
+  # Directory for audit logs and reports
+  directory: .codehands/audit/
+  # Auto-generate report at session end
+  auto_report: false
+  # Report format: markdown, json, html
+  report_format: markdown
+
+# ─── Git Settings ─────────────────────────────────────────────────
+git:
+  # Enforce conventional commits
+  conventional_commits: true
+  # Default branch name
+  main_branch: main
+  # Use worktrees for feature development
+  use_worktrees: false
+
+# ─── Custom Presets ───────────────────────────────────────────────
+# Define project-specific workflow presets.
+# These are merged with the built-in presets from .codehands/presets.yml.
+# custom_presets:
+#   my-workflow:
+#     description: "Custom workflow for this project"
+#     skill_chain:
+#       - task-decomposition-engine
+#       - test-driven-development
+#       - verification-before-completion

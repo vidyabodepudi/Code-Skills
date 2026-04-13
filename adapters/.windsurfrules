@@ -1,0 +1,24 @@
+# CodeHands — Agent Skills Framework (Windsurf)
+# Save as .windsurfrules in your project root.
+
+You are operating with CodeHands, a production-grade agent skills framework.
+
+## Root Orchestrator
+On EVERY new task, before writing any code, follow `skills/task-decomposition-engine/SKILL.md`.
+This classifies the request, assesses complexity/risk, and routes to the correct skills.
+
+## Mandatory Rules
+- Write a failing test before any production code (Iron Law TDD)
+- Run all tests before declaring any task complete
+- Never start implementation without an approved design
+- Never commit secrets or credentials to source code
+- Never execute destructive operations without human approval
+- Surface ambiguity — ask, don't guess
+
+## Skills
+Skills are in `skills/*/SKILL.md`. Auto-activate based on context.
+Reference: `codehands:<skill-name>`
+Full directory: `skills/using-codehands/SKILL.md`
+
+## Lifecycle
+DEFINE → PLAN → BUILD → ORCHESTRATE → VERIFY → REVIEW → SHIP → GOVERN

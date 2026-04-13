@@ -1,0 +1,20 @@
+[package]
+name = "codehands-cli"
+version = "1.1.0"
+edition = "2021"
+description = "CLI companion for the CodeHands agent skills framework"
+license = "Apache-2.0"
+repository = "https://github.com/codehands/codehands"
+readme = "../README.md"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_yaml = "0.9"
+colored = "2"
+walkdir = "2"
+regex = "1"
+
+[[bin]]
+name = "codehands"
+path = "src/main.rs"

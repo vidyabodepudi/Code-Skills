@@ -1,0 +1,12 @@
+{
+  "name": "CodeHands",
+  "version": "1.0.0",
+  "description": "Production-grade engineering skills for AI coding agents.",
+  "license": "Apache-2.0",
+  "skills_directory": "../../skills",
+  "agents_directory": "../../agents",
+  "model_detection": {
+    "platform": "kiro",
+    "enforcement_style": "structured-checklist"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "CodeHands",
+  "version": "1.0.0",
+  "description": "Production-grade engineering skills for AI coding agents. 33+ composable skills covering the entire SDLC with TDD enforcement, OWASP security, multi-agent orchestration, and deterministic model detection.",
+  "author": "CodeHands Contributors",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/codehands/codehands",
+  "skills_directory": "../../skills",
+  "agents_directory": "../../agents",
+  "references_directory": "../../references",
+  "commands_directory": "../../commands",
+  "model_detection": {
+    "platform": "cursor",
+    "enforcement_style": "human-partner collaborative",
+    "config_file": ".cursor-plugin/manifest.json"
+  },
+  "activation": {
+    "auto_load_skills": true,
+    "slash_commands": true,
+    "session_hooks": true
+  }
+}

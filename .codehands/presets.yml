@@ -1,0 +1,158 @@
+# CodeHands Presets
+#
+# Presets bundle common workflows into one-word activations.
+# The task-decomposition-engine selects the best preset based on
+# request classification, or users can specify one explicitly.
+#
+# Usage:
+#   "Use the quick-fix preset"
+#   "Follow the new-feature workflow"
+#   Or auto-selected by the engine based on classification
+
+presets:
+
+  # ─── Quick Fix ──────────────────────────────────────────────────
+  quick-fix:
+    description: "Fix a bug, typo, or make a small isolated change"
+    classification: [trivial-fix, bug-fix]
+    skip_phases: [define, plan]
+    skill_chain:
+      - task-decomposition-engine    # classify + fast path
+      - test-driven-development      # failing test first
+      - verification-before-completion
+    estimated_overhead: "~30 seconds classification, no planning"
+
+  # ─── New Feature ────────────────────────────────────────────────
+  new-feature:
+    description: "Build a new feature from scratch (full lifecycle)"
+    classification: [feature]
+    skip_phases: []
+    skill_chain:
+      - task-decomposition-engine
+      - codebase-reconnaissance
+      - brainstorming
+      - spec-driven-development
+      - planning-and-task-breakdown
+      - using-git-worktrees
+      - executing-plans
+      - test-driven-development       # per task
+      - incremental-implementation     # per task
+      - source-driven-development     # per task
+      - verification-before-completion
+      - code-review-and-quality
+      - security-and-hardening
+      - finishing-a-development-branch
+    estimated_overhead: "Full lifecycle, ~15-30 min for design phase"
+
+  # ─── Refactor ───────────────────────────────────────────────────
+  refactor:
+    description: "Refactor or simplify existing code without changing behavior"
+    classification: [refactor]
+    skip_phases: [define]
+    skill_chain:
+      - task-decomposition-engine
+      - codebase-reconnaissance
+      - source-driven-development
+      - planning-and-task-breakdown
+      - code-simplification
+      - test-driven-development
+      - verification-before-completion
+    estimated_overhead: "Lightweight planning, tests must exist before refactoring"
+
+  # ─── Security Audit ─────────────────────────────────────────────
+  security-audit:
+    description: "Full security review of the codebase"
+    classification: [investigation]
+    skip_phases: [define, plan, build, ship]
+    skill_chain:
+      - task-decomposition-engine
+      - codebase-reconnaissance
+      - security-and-hardening
+      - agent-security
+      - audit-and-governance
+    agents: [security-auditor]
+    estimated_overhead: "~10 min for thorough scan"
+
+  # ─── Performance Review ─────────────────────────────────────────
+  performance-review:
+    description: "Profile and optimize performance bottlenecks"
+    classification: [investigation]
+    skip_phases: [define, plan, ship]
+    skill_chain:
+      - task-decomposition-engine
+      - codebase-reconnaissance
+      - performance-optimization
+      - verification-before-completion
+    agents: [performance-engineer]
+    estimated_overhead: "Requires baseline measurement first"
+
+  # ─── API Development ────────────────────────────────────────────
+  api-development:
+    description: "Design and build API endpoints"
+    classification: [feature]
+    skip_phases: []
+    skill_chain:
+      - task-decomposition-engine
+      - codebase-reconnaissance
+      - api-and-interface-design
+      - planning-and-task-breakdown
+      - test-driven-development
+      - incremental-implementation
+      - security-and-hardening
+      - verification-before-completion
+      - code-review-and-quality
+    estimated_overhead: "Full lifecycle with API-specific guidance"
+
+  # ─── Frontend Build ─────────────────────────────────────────────
+  frontend-build:
+    description: "Build or modify frontend UI components"
+    classification: [feature]
+    skip_phases: []
+    skill_chain:
+      - task-decomposition-engine
+      - codebase-reconnaissance
+      - frontend-ui-engineering
+      - planning-and-task-breakdown
+      - test-driven-development
+      - incremental-implementation
+      - browser-testing-with-devtools
+      - verification-before-completion
+      - code-review-and-quality
+    estimated_overhead: "Includes accessibility and responsive testing"
+
+  # ─── Ship Release ───────────────────────────────────────────────
+  ship-release:
+    description: "Prepare and deploy a release to production"
+    classification: [configuration]
+    skip_phases: [define, plan, build]
+    skill_chain:
+      - task-decomposition-engine
+      - finishing-a-development-branch
+      - git-workflow-and-versioning
+      - ci-cd-and-shipping
+      - documentation-and-adrs
+    estimated_overhead: "Pre-launch checklist + deployment"
+
+  # ─── Debug Session ──────────────────────────────────────────────
+  debug-session:
+    description: "Systematic debugging of a specific issue"
+    classification: [bug-fix]
+    skip_phases: [define, plan, review, ship]
+    skill_chain:
+      - task-decomposition-engine
+      - systematic-debugging
+      - test-driven-development
+      - verification-before-completion
+    estimated_overhead: "4-phase investigation, ~5-15 min"
+
+# ─── Custom Presets ─────────────────────────────────────────────
+# Users can add their own presets below:
+#
+# my-custom-workflow:
+#   description: "Description of what this workflow does"
+#   classification: [feature]
+#   skip_phases: [define]
+#   skill_chain:
+#     - task-decomposition-engine
+#     - my-custom-skill
+#     - verification-before-completion
