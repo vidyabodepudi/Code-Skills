@@ -12,7 +12,7 @@
 
 AI coding agents are powerful, but without structure they produce inconsistent, insecure, untested code. CodeHands is the invisible hand that guides agents toward engineering excellence:
 
-- **🧪 Iron Law TDD** — No production code without a failing test first. Delete-first policy for code-before-tests.
+- **🧪 Strong TDD** — No production code without a failing test first. Delete-first policy for code-before-tests.
 - **🔒 Security-First** — OWASP Top 10, LLM Security Top 10, Agentic Security Top 10 — all covered.
 - **🤖 Multi-Agent Orchestration** — Subagent dispatch with two-stage review (spec compliance → code quality).
 - **🎯 Model-Aware** — Deterministic model detection adapts skill behavior to Claude, Gemini, GPT, and more.
@@ -214,9 +214,9 @@ codehands status                   # Show project CodeHands status
 
 CodeHands is built from the ground up, inspired by the best ideas from:
 
-- Multi-agent orchestration, Iron Law TDD, systematic debugging, git worktrees, full SDLC coverage, security engineering, performance optimization, context engineering, and goofy engineering cultures that needed a gentle nudge in the right direction
+- Multi-agent orchestration,TDD requirements, systematic debugging, git worktrees, full SDLC coverage, security engineering, performance optimization, context engineering, and goofy engineering cultures that needed a gentle nudge in the right direction
 
-We are deeply grateful to pioneers like Jesse Vincent, Addy Osmani, and many others (Saro, Danyelle, Jerry, Blanco, you know who you are)for creating this space.
+We are deeply grateful to pioneers like Jesse Vincent, Addy Osmani, and many others (Danyelle, Kris, Saro, Jerry, Blanco, Toverton) for creating this space.
 
 ## Contributing
 
